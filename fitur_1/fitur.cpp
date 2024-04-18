@@ -47,7 +47,7 @@ int main(){
     int jumlah;
 
     cout << "Menu" << endl;
-    cout << "1. Tambah transaksi" << endl;
+    cout << "1. Setor tunai" << endl;
     cout << "2. Riwayat transaksi" << endl;
     cout << "3. keluar" << endl;
 
