@@ -49,7 +49,7 @@ int main(){
     cout << "Menu" << endl;
     cout << "1. Setor tunai" << endl;
     cout << "2. Riwayat transaksi" << endl;
-    cout << "3. keluar" << endl;
+
 
 
     do{
@@ -63,12 +63,10 @@ int main(){
             case 2:
                 printTransaksi();
                 break;
-            case 3:
-                cout << "Terimakasih telah menggunakan program ini!" << endl;
-                break;
             default:
                 cout << "pilihan tidak valid" << endl;
         }
         cout <<"Apakah anda ingin melanjutkan? (y/n): ";cin >>pilihanUser;
     }while(pilihanUser == 'y' || pilihanUser == 'Y');
+    cout << "Terimakasih" << endl;
 }
