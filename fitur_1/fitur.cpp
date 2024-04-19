@@ -3,17 +3,15 @@
 using namespace std;
 
 struct transaksi{
-    int jumlah;
-    string nama;
+    string jumlah;
     transaksi* next;
 };
 
 transaksi* head = NULL;
 
-void addTransaksi(int jumlah, string nama){
+void addTransaksi(string jumlah){
     transaksi* baru = new transaksi;
     baru->jumlah=jumlah;
-    baru->nama=nama;
     baru->next=NULL;
 
     if (head == NULL){
@@ -34,7 +32,7 @@ void printTransaksi(){
     }else{
         cout << "Riwayat transaksi: "<<endl;
         while(temp != NULL){
-            cout << "Nama: " << temp->nama <<" Jumlah transaksi: " << temp->jumlah << endl;
+            cout <<" Jumlah transaksi: " << temp->jumlah << endl;
             temp = temp->next;
         }
     }
@@ -43,8 +41,7 @@ void printTransaksi(){
 int main(){
     char pilihanUser;
     int pilihan;
-    string nama;
-    int jumlah;
+    string jumlah;
 
     cout << "Menu" << endl;
     cout << "1. Setor tunai" << endl;
@@ -56,9 +53,8 @@ int main(){
         cout << "Masukan piliihan: "; cin >> pilihan;
         switch (pilihan){
             case 1:
-                cout << "Nama: "; cin >> nama;
                 cout << "Jumlah: "; cin >> jumlah;
-                addTransaksi(jumlah,nama);
+                addTransaksi(jumlah);
                 break;
             case 2:
                 printTransaksi();
