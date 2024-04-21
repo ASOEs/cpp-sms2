@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+
+
 struct node{
     string username;
     string password;
@@ -35,6 +37,7 @@ bool chekLogin(string username, string password){
     return false;
 }
 
+//melihan account
 void displayAccount(){
     node* temp = head;
     while(temp != NULL){
