@@ -4,7 +4,7 @@ using namespace std;
 const int ukuran = 5;
 struct queue{
     int top;
-    int isi[ukuran];
+    string isi[ukuran];
 } q;
 
 void createQueue()
@@ -28,7 +28,7 @@ int Isfull(){
     }
 }
 
-void insertQueue(int data){
+void insertQueue(string data){
     if (Isfull() == 1){
         cout<<"maaf, data tidak dapat ditambahkan karena antrian sudah penuh"<<endl;
 
@@ -38,6 +38,40 @@ void insertQueue(int data){
         q.top++;
     }
 }
+
+void deleteQueue(){
+    if (isEmpty() == 1){
+        cout << "Maaf, tidak ada data yang dihapus karena antrian kosong"<<endl;
+    }else{
+        string pop = q.isi[0];
+        cout << "Data "<<pop<< " Sudah keluar dari antrian" << endl;
+        for (int i=1;i<q.top;i++){
+            q.isi[i-1]=q.isi[i];
+        }
+        q.top--;
+    }
+}
+
+void findQueue(string cari){
+    string temp;
+    int itemp;
+    if (isEmpty()==1){
+        cout << "Maaf pencarian data tidak dapat dilakukan karena antrian kosong"<<endl;
+    }else{
+        for (int i =1;i <= q.top;i++){
+            if (cari == q.isi[i]){
+                temp = cari;
+                itemp = i;
+            }
+        }
+        if (cari == temp){
+            cout << "Data "<< cari<<" ditemukan pada posisi ke-"<<itemp<<"diantrian"<<endl;
+        }else{
+            cout <<"tidak ada data "<< cari << " yang ditemukan pada antrian"<<endl;
+        }
+    }
+}
+
 
 void displayQueue(){
     if (isEmpty()==0){
@@ -51,11 +85,18 @@ void displayQueue(){
 }
 
 int main(){
-    insertQueue(1);
-    insertQueue(2);
-    insertQueue(3);
-    insertQueue(4);
-    insertQueue(5);
-    insertQueue(6);
+    cout << "============="<<endl;
+    insertQueue("1");
+    insertQueue("2");
+    // insertQueue();
+    // insertQueue();
+    // insertQueue();
+    cout << "============="<<endl;
     displayQueue();
+    cout << "============="<<endl;
+    deleteQueue();
+    cout << "============="<<endl;
+    displayQueue();
+    cout << "============="<<endl;
+    findQueue("1");
 }
